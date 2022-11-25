@@ -141,3 +141,23 @@ function equal() {
         }
     }
 }
+
+//create function clear
+function clear() {
+    //clear firstNumber array
+    firstNumber = [];
+    //clear secondNumber array
+    secondNumber = [];
+    //clear operators array
+    operators = [];
+    //clear results array
+    results = [];
+    //display 0
+    display.textContent = 0;
+    //allow click on numbersBtn and equalBtn and dotBtn
+    numbersBtn.forEach((numberBtn) => {
+        numberBtn.disabled = false;
+    });
+    equalBtn.disabled = false;
+    dotBtn.disabled = false;
+}
