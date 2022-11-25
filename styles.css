@@ -112,3 +112,19 @@ a{
     text-decoration: none;
     color: #fff;
 }
+
+/* media queries */
+@media screen and (max-width: 700px){
+    footer{
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    footer{
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        font-size: 19px;
+    }
+}
