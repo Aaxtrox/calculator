@@ -62,3 +62,6 @@ document.addEventListener('keydown', (e) => {
         backspace();
     }
 });
+
+//disable click on equalBtn
+equalBtn.disabled = true;
