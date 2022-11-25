@@ -227,3 +227,30 @@ function percent() {
         display.textContent = secondNumber.join('');
     }
 }
+
+//function backspace working only for firstNumber array and secondNumber array
+function backspace() {
+    //if firstNumber array is not empty
+    if (firstNumber.length !== 0) {
+        //if last element of firstNumber array is .
+        if (firstNumber[firstNumber.length - 1] === '.') {
+            //enable dotBtn
+            dotBtn.disabled = false;
+        }
+        //pop last element of firstNumber array
+        firstNumber.pop();
+        //display firstNumber array
+        display.textContent = firstNumber.join('');
+    //if secondNumber array is not empty
+    } else if (secondNumber.length !== 0) {
+        //if last element of secondNumber array is .
+        if (secondNumber[secondNumber.length - 1] === '.') {
+            //enable dotBtn
+            dotBtn.disabled = false;
+        }
+        //pop last element of secondNumber array
+        secondNumber.pop();
+        //display secondNumber array
+        display.textContent = secondNumber.join('');
+    }
+}
