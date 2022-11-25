@@ -31,3 +31,34 @@ const operatorsBtn = document.querySelectorAll('#operator');
 const percentBtn = document.querySelector('#percent');
 //grab backspace button
 const backspaceBtn = document.querySelector('#backspace');
+
+//event listener for keydown
+document.addEventListener('keydown', (e) => {
+    //if keydown is a number
+    if (e.key >= 0 && e.key <= 9) {
+        //click on numbersBtn with same text content as keydown
+        numbersBtn.forEach((numberBtn) => {
+            if (numberBtn.textContent === e.key) {
+                numberBtn.click();
+            }
+        });
+    } else if (e.key === '.') {
+        dotBtn.click();
+    } else if (e.key === 'Enter' || e.key === '=') {
+        equalBtn.click();
+    } else if (e.key === 'Delete') {
+        clearBtn.click();
+    } else if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
+        //click on operatorsBtn with same text content as keydown
+        operatorsBtn.forEach((operatorBtn) => {
+            if (operatorBtn.textContent === e.key) {
+                operatorBtn.click();
+            }
+        });
+    } else if (e.key === '%') {
+        percentBtn.click();
+    } else if (e.key === 'Backspace') {
+        //run backspace function
+        backspace();
+    }
+});
