@@ -14,3 +14,20 @@ let displayValue = 0;
 
 //displayValue inside display
 display.textContent = displayValue;
+
+//grab all buttons
+const buttons = document.querySelectorAll('button');
+//grab buttons with id numbers
+const numbersBtn = document.querySelectorAll('#numbers');
+//grab equal button
+const equalBtn = document.querySelector('#equal');
+//grab dot button
+const dotBtn = document.querySelector('#dot');
+//grab clear button
+const clearBtn = document.querySelector('#clear');
+//grab operators buttons
+const operatorsBtn = document.querySelectorAll('#operator');
+//grab percent button
+const percentBtn = document.querySelector('#percent');
+//grab backspace button
+const backspaceBtn = document.querySelector('#backspace');
