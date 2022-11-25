@@ -1,3 +1,3 @@
 # calculator
 
-<a href="#">Live Demo</a>
+<a href="https://aaxtrox.github.io/calculator/">Live Demo</a>
