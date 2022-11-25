@@ -65,3 +65,79 @@ document.addEventListener('keydown', (e) => {
 
 //disable click on equalBtn
 equalBtn.disabled = true;
+
+
+
+//create function equal
+function equal() {
+    //if firstNumber array is not empty and operators array is not empty and secondNumber array is not empty
+    if (firstNumber.length !== 0 && operators.length !== 0 && secondNumber.length !== 0) {
+        //convert firstNumber array to number
+        let firstNumberValue = Number(firstNumber.join(''));
+        //convert secondNumber array to number
+        let secondNumberValue = Number(secondNumber.join(''));
+        //if operator is +
+        if (operators[0] === '+') {
+            //add firstNumberValue and secondNumberValue
+            let result = firstNumberValue + secondNumberValue;
+            //if result length is more than 10
+            if (result.toString().length > 10) {
+                //display error
+                display.textContent = 'Error';
+            } else {
+                //push result to results array
+                results.push(result);
+                //display result
+                display.textContent = results.join('');
+            }
+        //if operator is -
+        } else if (operators[0] === '-') {
+            //subtract firstNumberValue and secondNumberValue
+            let result = firstNumberValue - secondNumberValue;
+            //if result length is more than 10
+            if (result.toString().length > 10) {
+                //display error
+                display.textContent = 'Error';
+            } else {
+                //push result to results array
+                results.push(result);
+                //display result
+                display.textContent = results.join('');
+            }
+        //if operator is *
+        } else if (operators[0] === '*') {
+            //multiply firstNumberValue and secondNumberValue
+            let result = firstNumberValue * secondNumberValue;
+            //if result length is more than 10
+            if (result.toString().length > 10) {
+                //display error
+                display.textContent = 'Error';
+            } else {
+                //push result to results array
+                results.push(result);
+                //display result
+                display.textContent = results.join('');
+            }
+        //if operator is /
+        } else if (operators[0] === '/') {
+            //if secondNumberValue is 0
+            if (secondNumberValue === 0) {
+                //display error
+                display.textContent = 'Error';
+            } else {
+                //divide firstNumberValue and secondNumberValue
+                let result = firstNumberValue / secondNumberValue;
+                //if result length is more than 10
+                if (result.toString().length > 10) {
+                    //display error
+                    display.textContent = 'Error';
+                } else {
+                    //push result to results array
+                    results.push(result);
+                    //display result
+                    display.textContent = results.join('');
+                }
+            }
+        }
+    }
+}
