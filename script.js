@@ -66,7 +66,144 @@ document.addEventListener('keydown', (e) => {
 //disable click on equalBtn
 equalBtn.disabled = true;
 
-
+//add event listener to all buttons
+buttons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        //if firstNumber array is empty or secondNumber array is empty
+        if (firstNumber.length === 0 || secondNumber.length === 0) {
+            //disable equal button
+            equalBtn.disabled = true;
+        }
+        //if array numbers object 1 is empty and operator array is empty
+        if (Object.keys(numbers[0]).length === 0 && operators.length === 0) {
+            //if button clicked is a number
+            if (e.target.id === 'numbers' || e.target.textContent === '.') {
+                //enable percent button
+                percentBtn.disabled = false;
+                //grab text content of numbersBtn clicked
+                let number = e.target.textContent;
+                //push number to firstNumber array
+                firstNumber.push(number);
+                //dont allow click on dotBtn if firstNumber array includes dot
+                if (firstNumber.includes('.')) {
+                    dotBtn.disabled = true;
+                    //if . is the first number
+                    if (firstNumber[0] === '.') {
+                        //add 0 before .
+                        firstNumber.unshift('0');
+                    } else {
+                        //do nothing
+                    }
+                }
+                //dont allow more than 10 numbers
+                if (firstNumber.length > 10) {
+                    firstNumber.pop();
+                }
+                //display firstNumber array
+                display.textContent = firstNumber.join('');
+            } else if (e.target.id === 'operator') {
+                //if firstNumber array is not empty
+                if (firstNumber.length !== 0) {
+                    //enable percent button
+                    percentBtn.disabled = false;
+                    //enable click on numbersBtn and equalBtn and dotBtn
+                    numbersBtn.forEach((numberBtn) => {
+                        numberBtn.disabled = false;
+                    });
+                    dotBtn.disabled = false;
+                    //grab text content of operatorsBtn clicked
+                    let operator = e.target.textContent;
+                    //push operator to operators array
+                    operators.push(operator);
+                    //display operator
+                    display.textContent = operators.join('');
+                } else {
+                    //display error
+                    display.textContent = 'Error';
+                }
+            } else {
+                //do nothing
+            }
+        //if firstNumber array is not empty and operators array is not empty
+        } else if (firstNumber.length !== 0 && operators.length !== 0) {
+            //if button clicked is a number
+            if (e.target.id === 'numbers' || e.target.textContent === '.') {
+                //enable percent button
+                percentBtn.disabled = false;
+                //enable click on equalBtn
+                equalBtn.disabled = false;
+                //dotBtn enabled
+                dotBtn.disabled = false;
+                //grab text content of numbersBtn clicked
+                let number = e.target.textContent;
+                //push number to secondNumber array
+                secondNumber.push(number);
+                //don't allow click on dotBtn if secondNumber array includes dot
+                if (secondNumber.includes('.')) {
+                    dotBtn.disabled = true;
+                    //if . is the first number
+                    if (secondNumber[0] === '.') {
+                        //add 0 before .
+                        secondNumber.unshift('0');
+                    } else {
+                        //do nothing
+                    }
+                }
+                //dont allow more than 10 numbers
+                if (secondNumber.length > 10) {
+                    secondNumber.pop();
+                }
+                //display secondNumber array
+                display.textContent = secondNumber.join('');
+            } else if (e.target.id === 'equal') {
+                //enable percent button
+                percentBtn.disabled = false;
+                //run equal function
+                equal();
+                //clear all
+                firstNumber = [];
+                secondNumber = [];
+                operators = [];
+                firstNumber = results;
+                results = [];
+                //dont allow click on numbersBtn and equalBtn and dotBtn
+                numbersBtn.forEach((numberBtn) => {
+                    numberBtn.disabled = true;
+                });
+                equalBtn.disabled = true;
+                dotBtn.disabled = true;
+            } else if (firstNumber.length !== 0 && operators.length !== 0 &&
+            secondNumber.length !== 0 && e.target.id === 'operator') {
+                //run equal function
+                equal();
+                //clear all
+                firstNumber = [];
+                secondNumber = [];
+                operators = [];
+                firstNumber = results;
+                results = [];
+                //grab text content of operatorsBtn clicked
+                let operator = e.target.textContent;
+                //push operator to operators array
+                operators.push(operator);
+                //display operator
+                display.textContent = operators.join('');
+            }
+        }
+        if (e.target.id === 'clear') {
+            //run clear function
+            clear();
+        }
+        if (e.target.id === 'plusMinus') {
+            //run plusMinus function
+            plusMinus();
+        }
+        if (e.target.id === 'percent') {
+            //run percentage function
+            percent();
+        }
+    });
+});
 
 //create function equal
 function equal() {
