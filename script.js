@@ -161,3 +161,32 @@ function clear() {
     equalBtn.disabled = false;
     dotBtn.disabled = false;
 }
+
+//create function +/-
+function plusMinus() {
+    //if firstNumber array is not empty
+    if (firstNumber.length !== 0) {
+        //convert firstNumber array to number
+        let firstNumberValue = Number(firstNumber.join(''));
+        //multiply firstNumberValue by -1
+        let result = firstNumberValue * -1;
+        //clear firstNumber array
+        firstNumber = [];
+        //push result to firstNumber array
+        firstNumber.push(result);
+        //display result
+        display.textContent = firstNumber.join('');
+    //if secondNumber array is not empty
+    } else if (secondNumber.length !== 0) {
+        //convert secondNumber array to number
+        let secondNumberValue = Number(secondNumber.join(''));
+        //multiply secondNumberValue by -1
+        let result = secondNumberValue * -1;
+        //clear secondNumber array
+        secondNumber = [];
+        //push result to secondNumber array
+        secondNumber.push(result);
+        //display result
+        display.textContent = secondNumber.join('');
+    }
+}
