@@ -190,3 +190,40 @@ function plusMinus() {
         display.textContent = secondNumber.join('');
     }
 }
+
+//function percent
+function percent() {
+    //disable percentBtn
+    percentBtn.disabled = true;
+    //disable dotBtn
+    dotBtn.disabled = true;
+    //if firstNumber array is not empty
+    if (firstNumber.length !== 0) {
+        //convert firstNumber array to number
+        let firstNumberValue = Number(firstNumber.join(''));
+        //divide firstNumberValue by 100
+        let result = firstNumberValue / 100;
+        //round result to 2 decimal places
+        result = result.toFixed(2);
+        //clear firstNumber array
+        firstNumber = [];
+        //push result to firstNumber array
+        firstNumber.push(result);
+        //display result
+        display.textContent = firstNumber.join('');
+    //if secondNumber array is not empty
+    } else if (secondNumber.length !== 0) {
+        //convert secondNumber array to number
+        let secondNumberValue = Number(secondNumber.join(''));
+        //divide secondNumberValue by 100
+        let result = secondNumberValue / 100;
+        //round result to 2 decimal places
+        result = result.toFixed(2);
+        //clear secondNumber array
+        secondNumber = [];
+        //push result to secondNumber array
+        secondNumber.push(result);
+        //display result
+        display.textContent = secondNumber.join('');
+    }
+}
